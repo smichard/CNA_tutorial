@@ -28,15 +28,15 @@ vagrant up
   
 Screenshots  
 [Portainer](http://192.168.58.3:9000)  
-![Portainer](./0_tutorial/0_Tutorial_Setup/Portainer01.jpg)  
+![Portainer](CNA_tutorial/0_tutorial/0_Tutorial_Setup/Portainer01.jpg)  
 [Container Registry GUI](http://192.168.58.5:8080)  
-![Container registry](./0_tutorial/0_Tutorial_Setup/Container_Registry01.jpg)  
+![Container registry](CNA_tutorial/0_tutorial/0_Tutorial_Setup/Container_Registry01.jpg)  
 [Minio  S3-target](http://192.168.58.6:9000)  
-![Minio S3-target](./0_tutorial/0_Tutorial_Setup/Minio01.jpg)  
+![Minio S3-target](CNA_tutorial/0_tutorial/0_Tutorial_Setup/Minio01.jpg)  
 [GitLab](http://192.168.58.7:30080)  
-![GitLab](./0_tutorial/0_Tutorial_Setup/GitLab01.jpg)
+![GitLab](CNA_tutorial/0_tutorial/0_Tutorial_Setup/GitLab01.jpg)
 [Concourse](http://192.168.58.8:8080)  
-![Concourse web](./0_tutorial/0_Tutorial_Setup/Concourse01.jpg)
+![Concourse web](CNA_tutorial/0_tutorial/0_Tutorial_Setup/Concourse01.jpg)
 
 ## 1. Cloud Foundry Tutorial
 
