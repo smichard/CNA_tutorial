@@ -26,21 +26,21 @@ Vagrant.configure("2") do |config|
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
   # accessing "localhost:8080" will access port 80 on the guest machine.
-  config.vm.network "forwarded_port", guest: 3000 , host: 3000
-  config.vm.network "forwarded_port", guest: 5000 , host: 5000
-  config.vm.network "forwarded_port", guest: 8000, host: 8000
-  config.vm.network "forwarded_port", guest: 8080, host: 8080
-  config.vm.network "forwarded_port", guest: 9000 , host: 9000
-  config.vm.network "forwarded_port", guest: 9001 , host: 9001
-  config.vm.network "forwarded_port", guest: 9002 , host: 9002
-  config.vm.network "forwarded_port", guest: 9003 , host: 9003
-  config.vm.network "forwarded_port", guest: 9004 , host: 9004
-  config.vm.network "forwarded_port", guest: 30080 , host: 30080
-  config.vm.network "forwarded_port", guest: 30022 , host: 30022
+  # config.vm.network "forwarded_port", guest: 3000 , host: 3000
+  # config.vm.network "forwarded_port", guest: 5000 , host: 5000
+  # config.vm.network "forwarded_port", guest: 8000, host: 8000
+  # config.vm.network "forwarded_port", guest: 8080, host: 8080
+  # config.vm.network "forwarded_port", guest: 9000 , host: 9000
+  # config.vm.network "forwarded_port", guest: 9001 , host: 9001
+  # config.vm.network "forwarded_port", guest: 9002 , host: 9002
+  # config.vm.network "forwarded_port", guest: 9003 , host: 9003
+  # config.vm.network "forwarded_port", guest: 9004 , host: 9004
+  # config.vm.network "forwarded_port", guest: 30080 , host: 30080
+  # config.vm.network "forwarded_port", guest: 30022 , host: 30022
   
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-  # config.vm.network "private_network", ip: "192.168.33.100"
+  config.vm.network "private_network", ip: "192.168.58.2"
 
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
@@ -58,10 +58,14 @@ Vagrant.configure("2") do |config|
   # Example for VirtualBox:
   #
   config.vm.provider "virtualbox" do |vb|
-     vb.gui = false
-	 vb.name = "dockerbox"
-     vb.memory = "4096"
-	 vb.cpus = 1
+    vb.gui = false
+	  vb.name = "dockerbox"
+    vb.memory = "4096"
+    vb.cpus = 1
+    vb.customize ['modifyvm', :id, '--nictype1', 'Am79C973']
+    vb.customize ['modifyvm', :id, '--nicpromisc1', 'allow-all']
+    vb.customize ['modifyvm', :id, '--nictype2', 'Am79C973']
+    vb.customize ['modifyvm', :id, '--nicpromisc2', 'allow-all']
   end
   #
   # View the documentation for the provider you are using for more

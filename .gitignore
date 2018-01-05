@@ -1,3 +1,4 @@
 .vagrant
+.keys
 credentials.yml
 credentials2.yml
