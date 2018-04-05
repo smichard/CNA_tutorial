@@ -24,8 +24,8 @@ vagrant up
 | Minio S3-target  | [192.168.58.6](http://192.168.58.6:9000) | 9000  |
 | GitLab        | [192.168.58.7](http://192.168.58.7:30080) | 30080 |
 | Concourse | [192.168.58.8](http://192.168.58.8:8080) | 8080  |
-  
-  
+
+
 Screenshots  
 [Portainer](http://192.168.58.3:9000)  
 ![Portainer](CNA_tutorial/0_tutorial/0_Tutorial_Setup/Portainer01.jpg)  
@@ -38,22 +38,38 @@ Screenshots
 [Concourse](http://192.168.58.8:8080)  
 ![Concourse web](CNA_tutorial/0_tutorial/0_Tutorial_Setup/Concourse01.jpg)
 
+## How to
+explain various services how to access  
+use e.g. Putty to connect to vagrant box
+Hostname: 127.0.0.1
+Port: 2222
+User: vagrant
+Password: vagrant
+```bash
+cd /vagrant
+ls
+```
+
 ## 1. Cloud Foundry Tutorial
 
 ### 1.1 Pushing an app to Cloud Foundry  
-login, push app with manifest, scale app  
+login, push app, push app with manifest, scale app, blue green deployment, zero downtime push  
+```bash
+cd chapter_01_1
+```
+[Follow ReadMe](http://192.168.58.8:8080)
 
-### 1.2 Using Concourse to push apps to Cloud Foundry 
+### 1.2 Using Concourse to push apps to Cloud Foundry
 
 gitlab -> concourse, credentials  
-
-### 1.3 Pushing artifacts to S3 target  
-
-gitlab -> concourse -> Minio -> ECS Testdrive
 
 ### 1.4 Using versioning
 
 semver
+
+### 1.3 Pushing artifacts to S3 target  
+
+gitlab -> concourse -> Minio -> ECS Testdrive
 
 ### 1.5 Using slack    
 
