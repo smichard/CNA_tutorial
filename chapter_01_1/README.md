@@ -4,17 +4,18 @@ scope
 
 ### Prerequisite
 
-get Cloud Foundry account e. g.
+get Cloud Foundry account e. g. at [Pivotal Web Services](https://run.pivotal.io/)
 login through web, create spaces  
 link to Org and spaces explanation
 screen shot
+![Cloud_Foundry](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/chapter_1/cloud_foundry_spaces.JPG)
+[Find More](http://docs.cloudfoundry.org/concepts/roles.html)
 
 ### 1.1.1 Connect to Cloud Foundry Instance
 ```bash
 cf login -a https://api.run.pivotal.io
 ```
 provide credentials and select space
-[Find More](http://docs.cloudfoundry.org/concepts/roles.html)
 
 ### 1.1.1 Pushing an app to Cloud Foundry  
 ```bash
