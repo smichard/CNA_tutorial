@@ -1,6 +1,6 @@
 # CNA Tutorial
 
-scope
+scope, WIP
 
 ## Prerequisite
 
@@ -57,7 +57,7 @@ login, push app, push app with manifest, scale app, blue green deployment, zero 
 ```bash
 cd chapter_01_1
 ```
-[Follow ReadMe](http://192.168.58.8:8080)
+[Follow ReadMe](https://github.com/smichard/CNA_tutorial/chapter_01_1)
 
 ### 1.2 Using Concourse to push apps to Cloud Foundry
 
