@@ -6,7 +6,8 @@ scope
 
 get Cloud Foundry account e. g.
 login through web, create spaces  
-link to Org and spaces explanation
+link to Org and spaces explanation  
+[Find More](http://docs.cloudfoundry.org/concepts/roles.html)
 
 ### 1.1.1 Connect to Cloud Foundry Instance
 ```bash
@@ -30,7 +31,7 @@ check status of a specific app:
 ```bash
 cf app <my_app_name>
 ```
-
+[Find More](http://docs.cloudfoundry.org/devguide/deploy-apps/deploy-app.html)
 ### 1.1.2 Scaling an app
 scale app by number of instances
 ```bash
@@ -47,6 +48,7 @@ check status of all running apps in one space:
 ```bash
 cf delete <my_app_name>
 ```
+[Find More](http://docs.cloudfoundry.org/devguide/deploy-apps/cf-scale.html)
 
 ### 1.1.3 Pushing an app to Cloud Foundry using a manifest
 creating a 'manifest.yml' file, place it in the same folder
@@ -64,8 +66,10 @@ this manifest will push the app with the name <my_app_name> to Cloud Foundry wit
 
 use './update_script.sh' to perform changes and perform 'cf push' again. the app gets pushed a second time, this involves building the droplet and spinning up the app again. this procedure -> downtime
 
+[Find More](http://docs.cloudfoundry.org/devguide/deploy-apps/manifest.html)
+
 ### blue / green deployment with zero downtime push
-to perform zero downtime push we need a plugin to the CF CLI, download the latest version from github https://github.com/contraband/autopilot/releases
+to perform zero downtime push we need a plugin to the CF CLI, download the latest version from [GitHub](https://github.com/contraband/autopilot/releases)
 ```bash
 cf install-plugin <path_to_downloaded_binary>
 ```
@@ -103,3 +107,4 @@ perform zero downtime push, the application (green version) gets pushed to Cloud
 ```bash
 cf zero-downtime-push <my_app_name> -f manifest_green.yml
 ```
+[Find More](http://docs.cloudfoundry.org/devguide/deploy-apps/blue-green.html)
