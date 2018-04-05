@@ -28,9 +28,9 @@ vagrant up
 
 Screenshots  
 [Portainer](http://192.168.58.3:9000)  
-![Portainer](CNA_tutorial/tutorial_assets/chapter_0/Portainer01.jpg)  
+![Portainer](CNA_tutorial/blob/master/tutorial_assets/chapter_0/Portainer01.jpg)  
 [Container Registry GUI](http://192.168.58.5:8080)  
-![Container registry](CNA_tutorial/tutorial_assets/chapter_0/Container_Registry01.jpg)  
+![Container registry](CNA_tutorial/blob/master/tutorial_assets/chapter_0/Container_Registry01.jpg)  
 [Minio  S3-target](http://192.168.58.6:9000)  
 ![Minio S3-target](CNA_tutorial/tutorial_assets/chapter_0/Minio01.jpg)  
 [GitLab](http://192.168.58.7:30080)  
