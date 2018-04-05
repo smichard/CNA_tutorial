@@ -30,7 +30,7 @@ Screenshots
 [Portainer](http://192.168.58.3:9000)  
 ![Portainer](CNA_tutorial/blob/master/tutorial_assets/chapter_0/Portainer01.jpg?raw=true)  
 [Container Registry GUI](http://192.168.58.5:8080)  
-![Container registry](/CNA_tutorial/tutorial_assets/chapter_0/Container_Registry01.jpg?raw=true)  
+![Container registry](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/chapter_0/Container_Registry01.JPG)  
 [Minio  S3-target](http://192.168.58.6:9000)  
 ![Minio S3-target](CNA_tutorial/tutorial_assets/chapter_0/Minio01.jpg)  
 [GitLab](http://192.168.58.7:30080)  
@@ -57,7 +57,7 @@ login, push app, push app with manifest, scale app, blue green deployment, zero 
 ```bash
 cd chapter_01_1
 ```
-[Follow ReadMe](https://github.com/smichard/CNA_tutorial/tree/master/chapter_01_1)
+[Follow ReadMe of Chapter 1](https://github.com/smichard/CNA_tutorial/tree/master/chapter_01_1)
 
 ### 1.2 Using Concourse to push apps to Cloud Foundry
 
