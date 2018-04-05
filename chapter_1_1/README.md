@@ -8,7 +8,7 @@ get Cloud Foundry account e. g. at [Pivotal Web Services](https://run.pivotal.io
 login through web, create spaces  
 link to Org and spaces explanation
 screen shot
-![Cloud_Foundry](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/chapter_1/cloud_foundry_spaces.JPG)
+![Cloud_Foundry](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/chapter_1/1_cloud_foundry_spaces.JPG)
 [Find More](http://docs.cloudfoundry.org/concepts/roles.html)
 
 ### 1.1.1 Connect to Cloud Foundry Instance
@@ -70,7 +70,7 @@ use './update_script.sh' to perform changes and perform 'cf push' again. the app
 
 [Find More](http://docs.cloudfoundry.org/devguide/deploy-apps/manifest.html)
 
-### blue / green deployment with zero downtime push
+### 1.1.4 blue / green deployment with zero downtime push
 to perform zero downtime push we need a plugin to the CF CLI, download the latest version from [GitHub](https://github.com/contraband/autopilot/releases)
 ```bash
 cf install-plugin <path_to_downloaded_binary>

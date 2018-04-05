@@ -1,0 +1,76 @@
+.socicon{
+    color: white;
+}
+
+span.btn.btn-social{
+    color: white;
+    border-color: white;
+}
+
+.btn-social:hover{
+    color: white;
+    border-color: white;
+    background: #62a3c9;
+}
+
+a.socicon:before{
+    color: white;
+    text-decoration: none;
+    border-color: white;
+}
+
+.btn-primary{
+    background-color: #62a3c9;
+    border-color: #62a3c9;
+}
+
+.btn-primary:hover{
+    background-color: #3c8dbc;
+    border-color: #3c8dbc;
+}
+
+.btn-primary:visited{
+    background-color: #62a3c9;
+    border-color: #3c8dbc;
+}
+
+h3.connect{
+    color: white;
+}
+
+.bg_white{
+    background-color: white;
+}
+
+.status_link{
+    margin-top: 400px;
+    margin-left: 180px;
+}
+
+p.mbr-section-lead.lead{
+    width: 600px;
+}
+
+#menu-0 .bg-color.transparent .navbar-caption{
+    color: black;
+}
+
+#menu-0 .bg-color.transparent .link{
+    color: black;
+}
+
+#menu-0 .link:hover{
+    color: #62a3c9;
+}
+
+#menu-0 .link:focus {
+    color: white;
+}
+
+p.mbr-section-lead.lead {
+    color: black;
+}
+
+a.text_link{
+    color: darkgrey;
+}

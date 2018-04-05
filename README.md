@@ -55,13 +55,17 @@ ls
 ### 1.1 Pushing an app to Cloud Foundry  
 login, push app, push app with manifest, scale app, blue green deployment, zero downtime push  
 ```bash
-cd chapter_01_1
+cd chapter_1_1
 ```
-[Follow ReadMe of Chapter 1](https://github.com/smichard/CNA_tutorial/tree/master/chapter_01_1)
+[Follow ReadMe of Chapter 1_1](https://github.com/smichard/CNA_tutorial/tree/master/chapter_1_1)
 
 ### 1.2 Using Concourse to push apps to Cloud Foundry
 
 gitlab -> concourse, credentials  
+```bash
+cd chapter_1_2
+```
+[Follow ReadMe of Chapter 1_2](https://github.com/smichard/CNA_tutorial/tree/master/chapter_1_2)
 
 ### 1.4 Using versioning
 
