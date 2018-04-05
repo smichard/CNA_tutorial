@@ -1,6 +1,6 @@
 # CNA Tutorial
 
-scope, WIP
+scope, WIP, notation <>
 
 ## Prerequisite
 

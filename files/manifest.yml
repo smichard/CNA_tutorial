@@ -1,8 +1,0 @@
----
-applications:
-- name: sensor-cloud
-  memory: 64M
-  host: sensor-cloud
-  buildpack: staticfile_buildpack
-  
-  

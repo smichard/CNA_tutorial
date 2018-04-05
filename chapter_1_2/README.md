@@ -5,9 +5,9 @@ scope
 ### 1.2.1 Create GitLab project
 go to [GitLab](http://192.168.58.7:30080)
 set password
-![Git_Lab](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/chapter_1/2_gitlab_1)
+![Git_Lab](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/chapter_1/2_gitlab_1.JPG)
 login as 'root' with selected password
-![Git_Lab](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/chapter_1/2_gitlab_2)
+![Git_Lab](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/chapter_1/2_gitlab_2.JPG)
 since already existing git repository, adding second remote
 
 ```bash
