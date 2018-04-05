@@ -28,15 +28,15 @@ vagrant up
 
 Screenshots  
 [Portainer](http://192.168.58.3:9000)  
-![Portainer](CNA_tutorial/blob/master/tutorial_assets/chapter_0/Portainer01.jpg?raw=true)  
+![Portainer](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/chapter_0/Portainer01.JPG)  
 [Container Registry GUI](http://192.168.58.5:8080)  
 ![Container registry](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/chapter_0/Container_Registry01.JPG)  
 [Minio  S3-target](http://192.168.58.6:9000)  
-![Minio S3-target](CNA_tutorial/tutorial_assets/chapter_0/Minio01.jpg)  
+![Minio S3-target](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/chapter_0/Minio01.JPG)  
 [GitLab](http://192.168.58.7:30080)  
-![GitLab](CNA_tutorial/tutorial_assets/chapter_0/GitLab01.jpg)
+![GitLab](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/chapter_0/GitLab01.JPG)
 [Concourse](http://192.168.58.8:8080)  
-![Concourse web](CNA_tutorial/tutorial_assets/chapter_0/Concourse01.jpg)
+![Concourse web](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/chapter_0/Concourse01.JPG)
 
 ## How to
 explain various services how to access  
