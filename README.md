@@ -8,6 +8,8 @@ scope, WIP, notation <>
 [Vagrant](https://www.vagrantup.com)  
 
 ```bash
+git clone https://github.com/smichard/CNA_tutorial.git
+cd CNA_tutorial
 vagrant up
 ```
 
