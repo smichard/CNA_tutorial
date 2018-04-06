@@ -53,7 +53,7 @@ cf delete <my_app_name>
 [Find More](http://docs.cloudfoundry.org/devguide/deploy-apps/cf-scale.html)
 
 ### 1.1.3 Pushing an app to Cloud Foundry using a manifest
-creating a 'manifest.yml' file, place it in the same folder
+creating a `manifest.yml` file, place it in the same folder
 ```bash
 ---
 applications:
@@ -66,7 +66,7 @@ applications:
 ```
 this manifest will push the app with the name <my_app_name> to Cloud Foundry with a memory of 64M for each application, in total two instances are spun up  
 
-use './update_script.sh' to perform changes and perform 'cf push' again. the app gets pushed a second time, this involves building the droplet and spinning up the app again. this procedure -> downtime
+use `./update_script.sh` to perform changes and perform `cf push` again. the app gets pushed a second time, this involves building the droplet and spinning up the app again. this procedure -> downtime
 
 [Find More](http://docs.cloudfoundry.org/devguide/deploy-apps/manifest.html)
 

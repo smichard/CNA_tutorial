@@ -61,7 +61,7 @@ cd chapter_1_1
 ```
 [Follow ReadMe of Chapter 1_1](https://github.com/smichard/CNA_tutorial/tree/master/chapter_1_1)
 
-### 1.2 Using Concourse to push apps to Cloud Foundry
+### 1.2 Continuous Integration Pipeline with Concourse CI
 
 gitlab -> concourse, credentials  
 ```bash
@@ -69,19 +69,15 @@ cd chapter_1_2
 ```
 [Follow ReadMe of Chapter 1_2](https://github.com/smichard/CNA_tutorial/tree/master/chapter_1_2)
 
-### 1.4 Using versioning
+### 1.3 Backing Up App artifacts to S3 target  
 
-semver
-
-### 1.3 Pushing artifacts to S3 target  
-
-gitlab -> concourse -> Minio -> ECS Testdrive
+semver -> gitlab -> concourse -> Minio -> ECS Testdrive
 
 ### 1.5 Using slack    
 
 webhook to slack
 
-## 2. Docker Tutorial
+## 2. Container Tutorial
 
 ### 2.1 Docker hello-world  
 

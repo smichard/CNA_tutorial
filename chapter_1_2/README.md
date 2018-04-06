@@ -17,7 +17,9 @@ git push -u gitlab master
 
 ### 1.2.2 create concourse pipeline  
 Introduction to conourse, bladi, bladi, bla
-basically ressources, can act as input and output, some can be both, some can only either be in or output, define one input (GitLab Ressource) and one output (cf target)
+basically ressources, can act as input and output, some can be both, some can only either be in or output, define one input (GitLab Ressource) and one output (cf target) [Find More](https://concourse-ci.org/resources.html)
+build job, bladi bladi bla
+[Find More](https://concourse-ci.org/jobs.html)
 ```bash
 resources:
 - name: app_sources
@@ -58,9 +60,70 @@ cf_password: <my_cf_password>
 ```
 
 ### 1.2.3 install fly cli
+download fly cli, explain fly CLI [Find More](https://concourse-ci.org/fly.html)
+![concourse](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/chapter_1/2_concourse_1.JPG)
+```bash
+mv fly_linux_amd64 fly
+cp fly /usr/local/bin/fly
+```
+login to concourse ci
+```bash
+fly -t <my_target> login -c http://192.168.58.8:8080
+```
 
 ### 1.2.4 set concourse pipeline
+set pipeline [Find More](https://concourse-ci.org/pipelines.html)
+```bash
+fly -t <my_target> set-pipeline -c ci/pipeline.yml -l ci/credentials.yml
+```
+unpause pipeline, perform changes
+```bash
+./website/update_script.sh
+git add -A
+git commit -m "<my_comment>"
+git push gitlab master
+```
 
 ### 1.2.5 zero downtime deployment to cloud foundry
+explain ressource types [Find More](https://concourse-ci.org/resource-types.html)
+add ressource type
+```bash
+resource_types:
+- name: cf_cli_resource
+  type: docker-image
+  source:
+    repository: pivotalpa/cf-cli-resource
+    tag: latest
+```
+adjust resources
+```bash
+- name: cloud_foundry
+  type: cf_cli_resource
+  source:
+    api: https://api.run.pivotal.io
+    username: {{cf_username}}
+    password: {{cf_password}}
+    org: <my_cf_org>
+    space: <my_cf_space>
+    skip_cert_check: false
+```
+adjust job
+```bash
+jobs:
+  - name: deploy-app
+    public: true
+    serial: true
+    plan:
+    - get: app_sources
+      version: every
+      trigger: true
+    - put: cf-push
+      resource: cloud_foundry
+      params:
+        command: zero-downtime-push
+        path: app_sources/website/
+        manifest: app_sources/manifest.yml
+        current_app_name: <my_app_name>
+```
 
 [Go Back](https://github.com/smichard/CNA_tutorial)
