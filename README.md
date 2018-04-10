@@ -29,7 +29,7 @@ vagrant up
 
 
 Screenshots  
-<img src = "CNA_tutorial/tutorial_assets/chapter_0/Portainer01.JPG" width = "400" align="left">
+<img src = "https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/chapter_0/Portainer01.JPG" width = "400" align="left">
 [Portainer](http://192.168.58.3:9000)  
 username:  
 password:  
