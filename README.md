@@ -32,15 +32,16 @@ vagrant up
 [Portainer](http://192.168.58.3:9000)  
 username:  
 password:  
-link: [http://192.168.58.3:9000](http://192.168.58.3:9000)
+link: [192.168.58.3:9000](http://192.168.58.3:9000)
 Portainer is a lightweight management UI which allows you to easily manage your different Docker environments. Portainer is meant to be as simple to deploy as it is to use. It consists of a single container that can run on any Docker engine. Portainer allows you to manage your Docker containers, images, volumes, networks and more ! It is compatible with the standalone Docker engine and with Docker Swarm mode.  
 [find more](https://github.com/portainer/portainer)  
 
 <img src = "https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/chapter_0/Container_Registry01.JPG" width = "500" align="left">  
-[Container Registry GUI](http://192.168.58.5:8080)  
+
+[Container Registry GUI](192.168.58.5:8080)  
 username:  
 password:  
-link: [http://192.168.58.5:8080](http://192.168.58.5:8080)  
+link: [192.168.58.5:8080](http://192.168.58.5:8080)  
 description ...  
 [find more](link)  
 
