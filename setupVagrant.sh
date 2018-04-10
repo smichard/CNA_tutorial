@@ -19,8 +19,8 @@ then
 else
   echo "Cloud Foundry CLI not found"
 fi
-echo "Installing Concourse CI"
-wget https://github.com/concourse/concourse/releases/download/v3.8.0/fly_linux_amd64
+echo "Installing fly CLI"
+wget https://github.com/concourse/concourse/releases/download/v3.10.0/fly_linux_amd64
 mv fly_linux_amd64 fly
 cp fly /usr/local/bin/fly
 chmod 0755 /usr/local/bin/fly
@@ -39,7 +39,7 @@ docker-compose -f /vagrant/concourse_ci/docker-compose.yml up -d
 echo "Starting Registry"
 # docker-compose?
 docker run -d --net shared_nw --ip 192.168.58.4 --name registry-srv registry:2
-docker run -d --net shared_nw --ip 192.168.58.5 --name registry-gui --link registry-srv -e REGISTRY_URL=http://registry-srv:5000/v2 -e REGISTRY_NAME=localhost:5000 hyper/docker-registry-web 
+docker run -d --net shared_nw --ip 192.168.58.5 --name registry-gui --link registry-srv -e REGISTRY_URL=http://registry-srv:5000/v2 -e REGISTRY_NAME=localhost:5000 hyper/docker-registry-web
 echo "Starting Minio"
 docker run --name minio-target -d --net shared_nw --ip 192.168.58.6 -e MINIO_ACCESS_KEY=admin -e MINIO_SECRET_KEY=Password1! minio/minio server /data
 echo "Starting Gitlab"

@@ -3,7 +3,7 @@ version: '2'
 services:
   concourse-db:
     image: postgres:9.5
-    networks: 
+    networks:
       shared_nw:
         ipv4_address: 192.168.58.9
     environment:
@@ -13,12 +13,12 @@ services:
       PGDATA: /database
 
   concourse-web:
-    image: concourse/concourse
+    image: concourse/concourse:3.9.0
     links: [concourse-db]
     command: web
     depends_on: [concourse-db]
     # ports: ["9004:8080"]
-    networks: 
+    networks:
       shared_nw:
         ipv4_address: 192.168.58.8
     volumes: ["./keys/web:/concourse-keys"]
@@ -33,8 +33,8 @@ services:
       CONCOURSE_POSTGRES_DATABASE: concourse
 
   concourse-worker:
-    image: concourse/concourse
-    networks: 
+    image: concourse/concourse:3.9.0
+    networks:
       shared_nw:
         ipv4_address: 192.168.58.10
     privileged: true
@@ -42,10 +42,11 @@ services:
     depends_on: [concourse-web]
     command: worker
     volumes: ["./keys/worker:/concourse-keys"]
+    restart: unless-stopped
     environment:
       CONCOURSE_TSA_HOST: concourse-web
 
-networks: 
+networks:
   shared_nw:
     external:
       name: shared_nw

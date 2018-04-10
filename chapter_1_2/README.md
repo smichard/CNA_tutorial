@@ -8,11 +8,13 @@ set password
 ![Git_Lab](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/chapter_1/2_gitlab_1.JPG)
 login as 'root' with selected password
 ![Git_Lab](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/chapter_1/2_gitlab_2.JPG)
-since already existing git repository, adding second remote
+initialize git repo
 
 ```bash
-git remote add gitlab http://127.0.0.1:30080/root/<my-gitlab-project>.git
-git push -u gitlab master
+git remote add origin http://192.168.58.7:30080/root/<my_project_name>.git
+git add .
+git commit -m "Initial commit"
+git push -u origin master
 ```
 
 ### 1.2.2 create concourse pipeline  
