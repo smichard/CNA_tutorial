@@ -31,7 +31,7 @@ vagrant up
 Screenshots  
 [Portainer](http://192.168.58.3:9000)  
 ![Portainer](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/chapter_0/Portainer01.JPG)
-<img src = "https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/chapter_0/Portainer01.JPG" width = "400" align="left">  
+<img src = "CNA_tutorial/tutorial_assets/chapter_0/Portainer01.JPG" width = "400" align="left">  
 [Container Registry GUI](http://192.168.58.5:8080)  
 ![Container registry](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/chapter_0/Container_Registry01.JPG)  
 [Minio  S3-target](http://192.168.58.6:9000)  
