@@ -5,9 +5,9 @@ scope
 ### Create GitLab project
 go to [GitLab](http://192.168.58.7:30080)
 set password
-![Git_Lab](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/cf_gitlab_1.JPG)
+![Git_Lab](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/co_gitlab_1.JPG)
 login as 'root' with selected password
-![Git_Lab](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/cf_gitlab_2.JPG)
+![Git_Lab](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/co_gitlab_2.JPG)
 initialize git repo
 
 ```bash
@@ -19,7 +19,7 @@ git push -u origin master
 
 ### install fly cli
 download fly cli, explain fly CLI [Find More](https://concourse-ci.org/fly.html)
-![concourse](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/cf_concourse_1.JPG)
+![concourse](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/co_concourse_1.JPG)
 ```bash
 mv fly_linux_amd64 fly
 cp fly /usr/local/bin/fly
