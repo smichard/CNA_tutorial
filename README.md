@@ -33,7 +33,7 @@ Any text that is shown in brackets (e. g. `<some_text>`) requires an adjustment 
 | Concourse | [192.168.58.8](http://192.168.58.8:8080) | 8080  |
 
 
-<a href="http://192.168.58.3:9000"><img src = "https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/chapter_0/Portainer01.JPG" width = "400" align="left"></a>
+<a href="http://192.168.58.3:9000"><img src = "https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/chapter_0/intro_portainer.JPG" width = "400" align="left"></a>
 [Portainer](http://192.168.58.3:9000)  
 username:  
 password:  
@@ -56,9 +56,7 @@ description ...
 username:  
 password:  
 link: [192.168.58.6:9000](http://192.168.58.6:9000)  
-Minio is an object storage server released under Apache License v2.0. It is compatible with Amazon S3 cloud storage service. It is best suited for storing unstructured data such as photos, videos, log files, backups and container / VM images. Size of an object can range from a few KBs to a maximum of 5TB.
-
-Minio server is light enough to be bundled with the application stack, similar to NodeJS, Redis and MySQL.  
+Minio is an object storage server released under Apache License v2.0. It is compatible with Amazon S3 cloud storage service. It is best suited for storing unstructured data such as photos, videos, log files, backups and container / VM images. Size of an object can range from a few KBs to a maximum of 5TB.   Minio server is light enough to be bundled with the application stack, similar to NodeJS, Redis and MySQL.  
 [find more](https://www.minio.io/)  
 
 <a href="http://192.168.58.7:30080"><img src = "https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/intro_gitlab.JPG" width = "400" align="left"></a>
@@ -73,8 +71,9 @@ GitLab is the first single application built from the ground up for all stages o
 [Concourse](http://192.168.58.8:8080)  
 username:  
 password:  
-link: [192.168.58.8:8080](http://192.168.58.8:8080)  
-
+link: [192.168.58.8:8080](http://192.168.58.8:8080)
+bla    
+[Concourse CI](https://concourse-ci.org/)  
 
 ## How to
 explain various services how to access  
