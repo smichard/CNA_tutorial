@@ -1,13 +1,13 @@
-## Chapter 3
+## Chapter 1.2
 
 scope
 
-### Create GitLab project
+### 1.2.1 Create GitLab project
 go to [GitLab](http://192.168.58.7:30080)
 set password
-![Git_Lab](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/cf_gitlab_1.JPG)
+![Git_Lab](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/chapter_1/2_gitlab_1.JPG)
 login as 'root' with selected password
-![Git_Lab](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/cf_gitlab_2.JPG)
+![Git_Lab](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/chapter_1/2_gitlab_2.JPG)
 initialize git repo
 
 ```bash
@@ -17,19 +17,7 @@ git commit -m "Initial commit"
 git push -u origin master
 ```
 
-### install fly cli
-download fly cli, explain fly CLI [Find More](https://concourse-ci.org/fly.html)
-![concourse](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/cf_concourse_1.JPG)
-```bash
-mv fly_linux_amd64 fly
-cp fly /usr/local/bin/fly
-```
-login to concourse ci
-```bash
-fly -t <my_target> login -c http://192.168.58.8:8080
-```
-
-### create concourse pipeline  
+### 1.2.2 create concourse pipeline  
 Introduction to conourse, bladi, bladi, bla
 basically ressources, can act as input and output, some can be both, some can only either be in or output, define one input (GitLab Ressource) and one output (cf target) [Find More](https://concourse-ci.org/resources.html)
 build job, bladi bladi bla
@@ -73,7 +61,19 @@ cf_username: <my_cf_username>
 cf_password: <my_cf_password>
 ```
 
-### set concourse pipeline
+### 1.2.3 install fly cli
+download fly cli, explain fly CLI [Find More](https://concourse-ci.org/fly.html)
+![concourse](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/chapter_1/2_concourse_1.JPG)
+```bash
+mv fly_linux_amd64 fly
+cp fly /usr/local/bin/fly
+```
+login to concourse ci
+```bash
+fly -t <my_target> login -c http://192.168.58.8:8080
+```
+
+### 1.2.4 set concourse pipeline
 set pipeline [Find More](https://concourse-ci.org/pipelines.html)
 ```bash
 fly -t <my_target> set-pipeline -c ci/pipeline.yml -l ci/credentials.yml
@@ -86,7 +86,7 @@ git commit -m "<my_comment>"
 git push gitlab master
 ```
 
-### zero downtime deployment to cloud foundry
+### 1.2.5 zero downtime deployment to cloud foundry
 explain ressource types [Find More](https://concourse-ci.org/resource-types.html)
 add ressource type
 ```bash

@@ -1,4 +1,4 @@
-## Chapter 1.1
+## Chapter 2
 
 scope
 
@@ -8,16 +8,16 @@ get Cloud Foundry account e. g. at [Pivotal Web Services](https://run.pivotal.io
 login through web, create spaces  
 link to Org and spaces explanation
 screen shot
-![Cloud_Foundry](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/chapter_1/1_cloud_foundry_spaces.JPG)
+![Cloud_Foundry](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/cf_cloud_foundry_spaces.JPG)
 [Find More](http://docs.cloudfoundry.org/concepts/roles.html)
 
-### 1.1.1 Connect to Cloud Foundry Instance
+### Connect to Cloud Foundry Instance
 ```bash
 cf login -a https://api.run.pivotal.io
 ```
 provide credentials and select space
 
-### 1.1.1 Pushing an app to Cloud Foundry  
+### Pushing an app to Cloud Foundry  
 ```bash
 cf push <my_app_name> -b static_file_buildpack
 ```
@@ -34,7 +34,7 @@ check status of a specific app:
 cf app <my_app_name>
 ```
 [Find More](http://docs.cloudfoundry.org/devguide/deploy-apps/deploy-app.html)
-### 1.1.2 Scaling an app
+### Scaling an app
 scale app by number of instances
 ```bash
 cf scale <my_app_name> -i 5
@@ -52,7 +52,7 @@ cf delete <my_app_name>
 ```
 [Find More](http://docs.cloudfoundry.org/devguide/deploy-apps/cf-scale.html)
 
-### 1.1.3 Pushing an app to Cloud Foundry using a manifest
+### Pushing an app to Cloud Foundry using a manifest
 creating a `manifest.yml` file, place it in the same folder
 ```bash
 ---
@@ -70,7 +70,7 @@ use `./update_script.sh` to perform changes and perform `cf push` again. the app
 
 [Find More](http://docs.cloudfoundry.org/devguide/deploy-apps/manifest.html)
 
-### 1.1.4 blue / green deployment with zero downtime push
+### blue / green deployment with zero downtime push
 to perform zero downtime push we need a plugin to the CF CLI, download the latest version from [GitHub](https://github.com/contraband/autopilot/releases)
 ```bash
 cf install-plugin <path_to_downloaded_binary>
