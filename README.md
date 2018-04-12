@@ -33,7 +33,8 @@ Any text that is shown in brackets (e. g. `<some_text>`) requires an adjustment 
 | Concourse | [192.168.58.8](http://192.168.58.8:8080) | 8080  |
 
 
-<a href="http://192.168.58.3:9000"><img src = "https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/intro_portainer.JPG](http://192.168.58.3:9000)  
+<a href="http://192.168.58.3:9000"><img src = "https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/intro_portainer.JPG" width = "400" align="left"></a>
+[Portainer](http://192.168.58.3:9000)  
 username:  
 password:  
 link: [192.168.58.3:9000](http://192.168.58.3:9000)  
