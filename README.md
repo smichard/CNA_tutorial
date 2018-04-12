@@ -92,7 +92,7 @@ ls
 ## 1. Introduction to Git
 * Topics 1
 * Topics 2
-* Topics 3
+* Topics 3  
 [Follow Read Me of Chapter 1](https://github.com/smichard/CNA_tutorial/tree/master/chapter_1)
 
 ## 2. Introduction Cloud Foundry
@@ -122,5 +122,5 @@ cd chapter_3
 ## 4. Introduction to Docker
 * Docker hello-world
 * Build a custom Docker container
-* Using Concourse CI to build a Docker container
+* Using Concourse CI to build a Docker container  
 [Follow Read Me of Chapter 4](https://github.com/smichard/CNA_tutorial/tree/master/chapter_4)
