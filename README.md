@@ -93,6 +93,7 @@ ls
 * Topics 1
 * Topics 2
 * Topics 3
+[Follow Read Me of Chapter 1](https://github.com/smichard/CNA_tutorial/tree/master/chapter_1)
 
 ## 2. Introduction Cloud Foundry
 * connect to Cloud Foundry
@@ -103,7 +104,7 @@ ls
 ```bash
 cd chapter_2
 ```
-[Follow Read Me of Chapter 2](https://github.com/smichard/CNA_tutorial/tree/master/chapter_1_1)
+[Follow Read Me of Chapter 2](https://github.com/smichard/CNA_tutorial/tree/master/chapter_2)
 
 ## 3. Introduction to Concourse CI to build an integration pipeline
 * install the fly CLI in order to connect to the Concourse CI target
@@ -122,3 +123,4 @@ cd chapter_3
 * Docker hello-world
 * Build a custom Docker container
 * Using Concourse CI to build a Docker container
+[Follow Read Me of Chapter 4](https://github.com/smichard/CNA_tutorial/tree/master/chapter_4)
