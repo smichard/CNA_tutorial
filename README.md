@@ -1,18 +1,22 @@
 # CNA Tutorial
 
-scope, WIP, notation <>
+**work in progress**  
+The aim of this tutorial is to introduce the basic concepts of cloud native application development.  
+Starting by introducing the basic concepts of version control systems like **git**. This tutorial demonstrates the basic interaction with **Cloud Foundry** and shows how to push a small static website to Cloud Foundry. Furthermore the tutorial shows how to build a continuous integration pipeline with **Concourse CI in** order to push application code to Cloud Foundry. Furthermore the integration of S3 targets and slack into integration pipelines are shown. Lastly this tutorial intends to give a short introduction to the use of **Docker** containers.  
 
 ## Prerequisite
-
+The prerequisites for using this tutorial is the installation of **VirtualBox** and **Vagrant** on your local system. In addition, it makes sense to use a SSH client such as Putty:
 * [Virtualbox](https://www.virtualbox.org/)  
 * [Vagrant](https://www.vagrantup.com)  
-* Putty
+* [Putty](https://www.putty.org/)
 
+Once the software is downloaded and installed just clone this repository, go to the cloned folder and spin the development environment up by using vagrant:
 ```bash
 git clone https://github.com/smichard/CNA_tutorial.git
 cd CNA_tutorial
 vagrant up
 ```
+Any text that is shown in brackets (e. g. `<some_text>`) requires an adjustment in the course of this tutorial.
 
 ## Tutorial environment
 
@@ -29,7 +33,7 @@ vagrant up
 | Concourse | [192.168.58.8](http://192.168.58.8:8080) | 8080  |
 
 
-<a href="http://192.168.58.3:9000"><img src = "https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/chapter_0/Portainer01.JPG" width = "500" align="left"></a>
+<a href="http://192.168.58.3:9000"><img src = "https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/chapter_0/Portainer01.JPG" width = "400" align="left"></a>
 [Portainer](http://192.168.58.3:9000)  
 username:  
 password:  
@@ -38,8 +42,7 @@ Portainer is a lightweight management UI which allows you to easily manage your 
 [find more](https://github.com/portainer/portainer)  
 
 
-<a href="192.168.58.5:8080"><img src = "https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/chapter_0/Container_Registry01.JPG" width = "500" align="left"></a>  
-
+<a href="192.168.58.5:8080"><img src = "https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/intro_registry.JPG" width = "400" align="left"></a>  
 [Container Registry GUI](192.168.58.5:8080)  
 username:  
 password:  
@@ -48,20 +51,30 @@ description ...
 [find more](link)  
 
 
+<a href="http://192.168.58.6:9000"><img src = "https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/intro_minio.JPG" width = "400" align="left"></a>
 [Minio  S3-target](http://192.168.58.6:9000)  
-![Minio S3-target](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/chapter_0/Minio01.JPG)  
+username:  
+password:  
+link: [192.168.58.6:9000](http://192.168.58.6:9000)  
 Minio is an object storage server released under Apache License v2.0. It is compatible with Amazon S3 cloud storage service. It is best suited for storing unstructured data such as photos, videos, log files, backups and container / VM images. Size of an object can range from a few KBs to a maximum of 5TB.
 
 Minio server is light enough to be bundled with the application stack, similar to NodeJS, Redis and MySQL.  
 [find more](https://www.minio.io/)  
 
+<a href="http://192.168.58.7:30080"><img src = "https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/intro_gitlab.JPG" width = "400" align="left"></a>
 [GitLab](http://192.168.58.7:30080)  
-![GitLab](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/chapter_0/GitLab01.JPG)
+username:  
+password:  
+link: [192.168.58.7:30080](http://192.168.58.7:30080)  
 GitLab is the first single application built from the ground up for all stages of the DevOps lifecycle for Product, Development, QA, Security, and Operations teams to work concurrently on the same project. GitLab enables teams to collaborate and work from a single conversation, instead of managing multiple threads across disparate tools. GitLab provides teams a single data store, one user interface, and one permission model across the DevOps lifecycle allowing teams to collaborate, significantly reducing cycle time and focus exclusively on building great software quickly.  
 [GitLab](https://about.gitlab.com/)  
 
+<a href="http://192.168.58.8:8080"><img src = "https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/intro_concourseci.JPG" width = "400" align="left"></a>
 [Concourse](http://192.168.58.8:8080)  
-![Concourse web](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/chapter_0/Concourse01.JPG)
+username:  
+password:  
+link: [192.168.58.8:8080](http://192.168.58.8:8080)  
+
 
 ## How to
 explain various services how to access  
@@ -103,7 +116,7 @@ gitlab -> concourse, credentials
 ```bash
 cd chapter_1_2
 ```
-[Follow ReadMe of Chapter 1_2](https://github.com/smichard/CNA_tutorial/tree/master/chapter_1_2)
+[Follow Read Me of Chapter 1_2](https://github.com/smichard/CNA_tutorial/tree/master/chapter_1_2)
 
 ## 4. Introduction to Docker
 * Topics 1
