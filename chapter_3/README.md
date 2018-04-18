@@ -2,7 +2,7 @@
 
 The scope of this chapter is to walk through the following topics:
 * install the fly CLI in order to connect to the Concourse CI target
-* create an integrtion pipeline with Concourse CI
+* create an integration pipeline with Concourse CI
 * set concourse pipeline
 * zero downtime deployment to Cloud Foundry through Concourse CI
 * versioning semver
@@ -12,9 +12,9 @@ The scope of this chapter is to walk through the following topics:
 ### Create GitLab project
 go to [GitLab](http://192.168.58.7:30080)
 set password
-![Git_Lab](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/chapter_1/2_gitlab_1.JPG)
+![Git_Lab](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/co_gitlab_1.JPG)
 login as 'root' with selected password
-![Git_Lab](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/chapter_1/2_gitlab_2.JPG)
+![Git_Lab](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/co_gitlab_2.JPG)
 initialize git repo
 
 ```bash
@@ -23,6 +23,18 @@ git add .
 git commit -m "Initial commit"
 git push -u origin master
 ```
+### Install the fly cli
+download fly cli, explain fly CLI [Find More](https://concourse-ci.org/fly.html)
+![concourse](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/co_concourse_1.JPG)
+```bash
+mv fly_linux_amd64 fly
+cp fly /usr/local/bin/fly
+```
+login to concourse ci
+```bash
+fly -t <my_target> login -c http://192.168.58.8:8080
+```
+
 
 ### Create concourse pipeline  
 Introduction to conourse, bladi, bladi, bla
@@ -66,18 +78,6 @@ add 'credentials.yml' file to the '.gitignore' file in the root directory of you
 ```bash
 cf_username: <my_cf_username>
 cf_password: <my_cf_password>
-```
-
-### Install the fly cli
-download fly cli, explain fly CLI [Find More](https://concourse-ci.org/fly.html)
-![concourse](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/chapter_1/2_concourse_1.JPG)
-```bash
-mv fly_linux_amd64 fly
-cp fly /usr/local/bin/fly
-```
-login to concourse ci
-```bash
-fly -t <my_target> login -c http://192.168.58.8:8080
 ```
 
 ### Set concourse pipeline

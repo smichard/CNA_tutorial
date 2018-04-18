@@ -113,7 +113,7 @@ cd chapter_2
 
 ## 3. Introduction to Concourse CI to build an integration pipeline
 * install the fly CLI in order to connect to the Concourse CI target
-* create an integrtion pipeline with Concourse CI
+* create an integration pipeline with Concourse CI
 * set concourse pipeline
 * zero downtime deployment to Cloud Foundry through Concourse CI
 * versioning semver
