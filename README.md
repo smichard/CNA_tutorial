@@ -80,6 +80,7 @@ Portainer is a lightweight management UI which allows you to easily manage your 
 
 ## Getting Started
 Check if all services have been started successfully, the easiest way is by using Portatiner. Login to Portainer using your credentials, choose connect to local, and go to the container tab. All services should be up und running:  
+![Portainer](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/intro_portainer_2.JPG)
 <a href="http://192.168.58.3:9000"><img src = "https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/intro_portainer_2.JPG" width = "600" align="left"></a>  
 
 Connect to your vagrant box e.g. by using Putty:  
