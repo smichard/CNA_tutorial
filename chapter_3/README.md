@@ -12,9 +12,7 @@ The scope of this chapter is to walk through the following topics:
 ### Create GitLab project
 go to [GitLab](http://192.168.58.7:30080)
 set password
-![Git_Lab](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/co_gitlab_1.JPG)
 login as 'root' with selected password
-![Git_Lab](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/co_gitlab_2.JPG)
 initialize git repo
 
 ```bash
@@ -39,14 +37,16 @@ fly -t <my_target> login -c http://192.168.58.8:8080
 ### Create concourse pipeline  
 Introduction to conourse, bladi, bladi, bla
 basically ressources, can act as input and output, some can be both, some can only either be in or output, define one input (GitLab Ressource) and one output (cf target) [Find More](https://concourse-ci.org/resources.html)
-build job, bladi bladi bla
+build job, bladi bladi bla, best practise create folder for ci
 [Find More](https://concourse-ci.org/jobs.html)
 ```bash
 resources:
 - name: app_sources
   type: git
   source:
-    uri: http://127.0.0.1:30080/root/<my-gitlab-project>.git
+    uri: http://192.168.58.7:30080/root/<my-gitlab-project>.git
+    username: {{gitlab_username}}
+    password: {{gitlab_password}}
     branch: master
   check_every: 10s
 
@@ -73,9 +73,11 @@ jobs:
         path: app_sources/website/
         manifest: app_sources/manifest.yml
 ```
-create 'credentials.yml' file
-add 'credentials.yml' file to the '.gitignore' file in the root directory of your git repository in order to prevent it from check in
+create `credentials.yml` file
+add `credentials.yml` file to the `.gitignore` file in the root directory of your git repository in order to prevent it from check in
 ```bash
+gitlab_username: <my_gitlab_username>
+gitlab_password: <my_gitlab_password>
 cf_username: <my_cf_username>
 cf_password: <my_cf_password>
 ```
@@ -83,19 +85,29 @@ cf_password: <my_cf_password>
 ### Set concourse pipeline
 set pipeline [Find More](https://concourse-ci.org/pipelines.html)
 ```bash
-fly -t <my_target> set-pipeline -c ci/pipeline.yml -l ci/credentials.yml
+fly -t <my_target> set-pipeline -p <my_pipeline> -c ci/pipeline.yml -l ci/credentials.yml
 ```
-unpause pipeline, perform changes
+login to [Concourse](http://192.168.58.8:8080)  
+unpause pipeline
+![concourse](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/co_concourse_2.JPG)
+execute pipeline gui,  
+perform some changes, helper script
 ```bash
-./website/update_script.sh
+./update_script.sh
 git add -A
 git commit -m "<my_comment>"
-git push gitlab master
+git push origin master
 ```
 
 ### Zero downtime deployment to cloud foundry
 explain ressource types [Find More](https://concourse-ci.org/resource-types.html)
-add ressource type
+copy pipeline  and create networks
+```bash
+cp ci/pipeline.yml ci/pipeline_zero.yml
+```
+
+
+add ressource type, pipeline_zero.yml
 ```bash
 resource_types:
 - name: cf_cli_resource
@@ -133,6 +145,174 @@ jobs:
         path: app_sources/website/
         manifest: app_sources/manifest.yml
         current_app_name: <my_app_name>
+```
+
+```bash
+fly -t <my_target> set-pipeline -p <my_pipeline> -c ci/pipeline_zero.yml -l ci/credentials.yml
+```
+trigger pipeline, through git
+
+### versioning semver
+create new branch
+```bash
+git branch version
+```
+delete all files, and a file `version` content 0.1.0
+```bash
+git add -A
+git commit -m "versioning added"
+git push origin version
+git checkout master
+```
+add smever ressource
+adjust resources
+```bash
+- name: version
+  type: semver
+  source:
+    uri: http://192.168.58.7:30080/root/<my-gitlab-project>.git
+    branch: version
+    username: {{gitlab_username}}
+    password: {{gitlab_password}}
+    file: version
+    driver: git
+    initial_version: 0.1.0
+```
+
+add new job
+```bash
+- name: bump-version-minor
+  public: true
+  plan:
+    - aggregate:
+      - get:  app_sources
+        passed: [ deploy-app ]
+        trigger: true
+      - get: version
+        trigger: false
+      - put: version
+        params: {bump: minor}
+```
+
+explain versioning
+```bash
+fly -t <my_target> set-pipeline -p <my_pipeline> -c ci/pipeline_zero.yml -l ci/credentials.yml
+```
+trigger pipeline, through git
+![concourse](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/co_concourse_2.JPG)
+gitlab screen shot to show versioning
+![concourse](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/co_concourse_2.JPG)
+
+### push to S3 target -> minio
+login to [Minio](http://192.168.58.6:9000)  
+create bucket
+![Minio](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/co_minio.JPG)
+add S3 ressources
+```bash
+- name: minio_target
+  type: s3
+  source:
+    endpoint: http://192.168.58.6:9000
+    bucket: releases
+    regexp: app_artifact-(.*).tar.gz
+    access_key_id: {{minio_username}}
+    secret_access_key: {{minio_password}}
+```
+add minio credentialy to `credentials.yml`
+```bash
+minio_username: <my_gitlab_username>
+minio_password: <my_gitlab_password>
+```
+
+add job
+```bash
+- name: minio-backup
+  public: true
+  serial: true
+  plan:
+  - get: version
+    trigger: false
+  - get: app_sources
+    trigger: true
+    passed: [ deploy-app ]
+  - task: create-artifact
+    file: app_sources/ci/tasks/create_artifact.yml
+  - put: minio_target
+    params:
+      file: ./artifact/app_artifact-*.tar.gz
+      acl: public-read
+```
+```bash
+fly -t <my_target> set-pipeline -p <my_pipeline> -c ci/pipeline_zero.yml -l ci/credentials.yml
+```
+trigger pipeline, through git
+![concourse](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/co_concourse_2.JPG)
+minio screen shot to show upload
+![concourse](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/co_concourse_2.JPG)
+
+### slack integration
+add ressource types
+```bash
+- name: slack_notification
+  type: docker-image
+  source:
+    repository: cfcommunity/slack-notification-resource
+    tag: latest
+```
+
+add ressource
+```bash
+- name: slack_msg
+  type: slack_notification
+  source:
+    url: {{slack_hook}}
+```
+
+login to slack, configure apps, custom integration, add configuration, copy webhook url, add slack credentials to `credentials.yml`
+```bash
+slack_hook: <my_slack_hook>
+```
+
+adjust deploy jobs
+```bash
+jobs:
+  - name: deploy-app
+    public: true
+    serial: true
+    plan:
+    - get: app_sources
+      version: every
+      trigger: true
+    - put: cf-push
+      resource: cloud_foundry
+      params:
+        command: zero-downtime-push
+        path: app_sources/website/
+        manifest: app_sources/manifest.yml
+        current_app_name: <my_app_name>
+      on_success:
+        put: slack_msg
+        params:
+          channel: '#general'
+          text: |
+            The build $BUILD_JOB_NAME with build ID $BUILD_ID for pipeline $BUILD_PIPELINE_NAME completed succesfully. Check the current development state at: http://192.168.58.8:8080/builds/$BUILD_ID
+      on_failure:
+        put: slack_msg
+        params:
+          channel: '#general'
+          text: |
+            The build $BUILD_JOB_NAME with build ID $BUILD_ID for pipeline $BUILD_PIPELINE_NAME failed. Check it out at:
+            http://192.168.58.8:8080/builds/$BUILD_ID
+```
+trigger pipeline, through git
+![concourse](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/co_concourse_2.JPG)
+
+
+At the end of this chapter delete all apps and switch to the parent directory:
+```bash
+cf delete <my_app_name>
+cf apps
+cd ..
 ```
 
 [Go Back](https://github.com/smichard/CNA_tutorial)

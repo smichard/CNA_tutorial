@@ -5,4 +5,5 @@ if [ -f ./index2.html ]; then
         mv index3.html index2.html
         mv index4.html index3.html
         mv index_tmp.html index4.html
+        echo update executed
 fi

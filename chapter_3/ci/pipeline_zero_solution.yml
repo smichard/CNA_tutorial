@@ -9,7 +9,9 @@ resources:
 - name: app_sources
   type: git
   source:
-    uri: http://127.0.0.1:30080/root/<my-gitlab-project>.git
+    uri: http://192.168.58.7:30080/root/<my-gitlab-project>.git
+    username: {{gitlab_username}}
+    password: {{gitlab_password}}
     branch: master
   check_every: 10s
 
@@ -23,7 +25,6 @@ resources:
     space: <my_cf_space>
     skip_cert_check: false
 
-jobs:
 jobs:
   - name: deploy-app
     public: true

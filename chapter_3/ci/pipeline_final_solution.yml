@@ -1,0 +1,114 @@
+resource_types:
+- name: cf_cli_resource
+  type: docker-image
+  source:
+    repository: pivotalpa/cf-cli-resource
+    tag: latest
+
+- name: slack_notification
+  type: docker-image
+  source:
+    repository: cfcommunity/slack-notification-resource
+    tag: latest
+
+resources:
+- name: app_sources
+  type: git
+  source:
+    uri: http://192.168.58.7:30080/root/<my-gitlab-project>.git
+    username: {{gitlab_username}}
+    password: {{gitlab_password}}
+    branch: master
+  check_every: 10s
+
+- name: cloud_foundry
+  type: cf_cli_resource
+  source:
+    api: https://api.run.pivotal.io
+    username: {{cf_username}}
+    password: {{cf_password}}
+    org: <my_cf_org>
+    space: <my_cf_space>
+    skip_cert_check: false
+
+- name: version
+  type: semver
+  source:
+    uri: http://192.168.58.7:30080/root/<my-gitlab-project>.git
+    branch: version
+    username: {{gitlab_username}}
+    password: {{gitlab_password}}
+    file: version
+    driver: git
+    initial_version: 0.1.0
+
+- name: minio_target
+  type: s3
+  source:
+    endpoint: http://192.168.58.6:9000
+    bucket: releases
+    regexp: app_artifact-(.*).tar.gz
+    access_key_id: {{minio_username}}
+    secret_access_key: {{minio_password}}
+
+- name: slack_msg
+  type: slack_notification
+  source:
+    url: {{slack_hook}}
+
+jobs:
+  - name: deploy-app
+    public: true
+    serial: true
+    plan:
+    - get: app_sources
+      version: every
+      trigger: true
+    - put: cf-push
+      resource: cloud_foundry
+      params:
+        command: zero-downtime-push
+        path: app_sources/website/
+        manifest: app_sources/manifest.yml
+        current_app_name: <my_app_name>
+      on_success:
+        put: slack_msg
+        params:
+          channel: '#general'
+          text: |
+            The build $BUILD_JOB_NAME with build ID $BUILD_ID for pipeline $BUILD_PIPELINE_NAME completed succesfully. Check the current development state at: http://192.168.58.8:8080/builds/$BUILD_ID
+      on_failure:
+        put: slack_msg
+        params:
+          channel: '#general'
+          text: |
+            The build $BUILD_JOB_NAME with build ID $BUILD_ID for pipeline $BUILD_PIPELINE_NAME failed. Check it out at:
+            http://192.168.58.8:8080/builds/$BUILD_ID
+
+  - name: bump-version-minor
+    public: true
+    plan:
+      - aggregate:
+        - get:  app_sources
+          passed: [ deploy-app ]
+          trigger: true
+        - get: version
+          trigger: false
+        - put: version
+          params: {bump: minor}
+
+  - name: minio-backup
+    public: true
+    serial: true
+    plan:
+    - get: version
+      trigger: false
+    - get: app_sources
+      trigger: true
+      passed: [ deploy-app ]
+    - task: create-artifact
+      file: app_sources/ci/tasks/create_artifact.yml
+    - put: minio_target
+      params:
+        file: ./artifact/app_artifact-*.tar.gz
+        acl: public-read

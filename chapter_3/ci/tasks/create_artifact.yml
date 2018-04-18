@@ -15,8 +15,7 @@ run:
   - -exc
   - |
     # Do your build steps here. Creating temporary file below as a sample:
-    export CURRENT_TIMESTAMP=$(date +"%Y%m%d%H%S")
     export CURRENT_VERSION=$(cat version/version)
     # Creating sample package file with a file name containing the new version number
-    tar -zcvf iot_demo-$CURRENT_TIMESTAMP-$CURRENT_VERSION.tar.gz app_sources
-    cp iot_demo-$CURRENT_TIMESTAMP-$CURRENT_VERSION.tar.gz artifact
+    tar -zcvf app_artifact-$CURRENT_VERSION.tar.gz app_sources
+    cp app_artifact-$CURRENT_VERSION.tar.gz artifact
