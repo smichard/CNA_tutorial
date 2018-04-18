@@ -1,7 +1,12 @@
 # CNA Tutorial
 
 **work in progress**  
-
+- [ ] chapter 3
+  - [ ] test code
+  - [ ] add text
+  - [ ] add screenshots
+- [ ] chapter 2
+- [ ] optimize Vagrantfile, plain ubuntu
 The aim of this tutorial is to introduce the basic concepts of cloud native application development.  
 Starting by introducing the basic concepts of version control systems like **git**. This tutorial demonstrates the basic interaction with **Cloud Foundry** and shows how to push a small static website to Cloud Foundry. Furthermore the tutorial shows how to build a continuous integration pipeline with **Concourse CI in** order to push application code to Cloud Foundry. Furthermore the integration of S3 targets and slack into integration pipelines are shown. Lastly this tutorial intends to give a short introduction to the use of **Docker** containers.  
 
