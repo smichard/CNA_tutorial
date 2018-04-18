@@ -92,7 +92,7 @@ Password: vagrant
 cd /vagrant
 ls
 ```
-
+![Summary](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/intro_summary.JPG)
 ## 1. Introduction to Git
 * Topics 1
 * Topics 2
