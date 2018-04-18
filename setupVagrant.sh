@@ -16,7 +16,7 @@ brctl addif docker1 eth1
 if [ -f "/vagrant/cf-cli-installer_6.30.0_x86-64.deb" ]
 then
   echo "Installing Cloud Foundry CLI"
-  dpkg -i /vagrant/cf-cli-installer_6.30.0_x86-64.deb
+  dpkg -i /vagrant/cf-cli-installer_6.36.1_x86-64.deb
 else
   echo "Cloud Foundry CLI not found"
 fi

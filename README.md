@@ -6,10 +6,11 @@ The aim of this tutorial is to introduce the basic concepts of cloud native appl
 Starting by introducing the basic concepts of version control systems like **git**. This tutorial demonstrates the basic interaction with **Cloud Foundry** and shows how to push a small static website to Cloud Foundry. Furthermore the tutorial shows how to build a continuous integration pipeline with **Concourse CI in** order to push application code to Cloud Foundry. Furthermore the integration of S3 targets and slack into integration pipelines are shown. Lastly this tutorial intends to give a short introduction to the use of **Docker** containers.  
 
 ## Prerequisite
-The prerequisites for using this tutorial is the installation of **VirtualBox** and **Vagrant** on your local system. In addition, it makes sense to use a SSH client such as Putty:
+The prerequisites for using this tutorial is the installation of **VirtualBox** and **Vagrant** on your local system. In addition, it makes sense to use a SSH client such as **Putty** and a text editor such as **Atom**:
 * [Virtualbox](https://www.virtualbox.org/)  
 * [Vagrant](https://www.vagrantup.com)  
 * [Putty](https://www.putty.org/)
+* [Atom](https://atom.io/)
 
 Once the software is downloaded and installed just clone this repository, go to the cloned folder and spin the development environment up by using vagrant:
 ```bash

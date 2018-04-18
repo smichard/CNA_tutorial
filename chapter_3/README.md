@@ -1,8 +1,15 @@
-## Chapter 1.2
+## Chapter 3
 
-scope
+The scope of this chapter is to walk through the following topics:
+* install the fly CLI in order to connect to the Concourse CI target
+* create an integrtion pipeline with Concourse CI
+* set concourse pipeline
+* zero downtime deployment to Cloud Foundry through Concourse CI
+* versioning semver
+* push to S3 target -> minio -> ECS Testdrive
+* slack integration
 
-### 1.2.1 Create GitLab project
+### Create GitLab project
 go to [GitLab](http://192.168.58.7:30080)
 set password
 ![Git_Lab](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/chapter_1/2_gitlab_1.JPG)
@@ -17,7 +24,7 @@ git commit -m "Initial commit"
 git push -u origin master
 ```
 
-### 1.2.2 create concourse pipeline  
+### Create concourse pipeline  
 Introduction to conourse, bladi, bladi, bla
 basically ressources, can act as input and output, some can be both, some can only either be in or output, define one input (GitLab Ressource) and one output (cf target) [Find More](https://concourse-ci.org/resources.html)
 build job, bladi bladi bla
@@ -61,7 +68,7 @@ cf_username: <my_cf_username>
 cf_password: <my_cf_password>
 ```
 
-### 1.2.3 install fly cli
+### Install the fly cli
 download fly cli, explain fly CLI [Find More](https://concourse-ci.org/fly.html)
 ![concourse](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/chapter_1/2_concourse_1.JPG)
 ```bash
@@ -73,7 +80,7 @@ login to concourse ci
 fly -t <my_target> login -c http://192.168.58.8:8080
 ```
 
-### 1.2.4 set concourse pipeline
+### Set concourse pipeline
 set pipeline [Find More](https://concourse-ci.org/pipelines.html)
 ```bash
 fly -t <my_target> set-pipeline -c ci/pipeline.yml -l ci/credentials.yml
@@ -86,7 +93,7 @@ git commit -m "<my_comment>"
 git push gitlab master
 ```
 
-### 1.2.5 zero downtime deployment to cloud foundry
+### Zero downtime deployment to cloud foundry
 explain ressource types [Find More](https://concourse-ci.org/resource-types.html)
 add ressource type
 ```bash

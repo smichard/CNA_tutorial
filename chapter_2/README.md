@@ -138,8 +138,6 @@ cf apps
 cd ..
 ```
 
-
-
 [Find More](http://docs.cloudfoundry.org/devguide/deploy-apps/blue-green.html)
 
 [Go Back](https://github.com/smichard/CNA_tutorial)
