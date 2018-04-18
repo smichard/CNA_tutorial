@@ -5,6 +5,7 @@ apt-get install -y virtualbox-guest-additions-iso
 apt-get install -y bridge-utils
 echo "Kill all Docker Containers"
 docker kill $(docker ps -q)
+docker rm $(docker ps -a -q)
 
 ## Create shared docker network
 ip addr del 192.168.58.2/24 dev eth1

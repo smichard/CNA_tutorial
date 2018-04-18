@@ -20,7 +20,8 @@ vagrant up
 Any text that is shown in brackets (e. g. `<some_text>`) requires an adjustment in the course of this tutorial.
 
 ## Tutorial environment
-**wip** describe environment
+**wip**  
+describe environment
 
 
 | Component     | IP           | Port  |
@@ -35,33 +36,33 @@ Any text that is shown in brackets (e. g. `<some_text>`) requires an adjustment 
 
 <a href="http://192.168.58.7:30080"><img src = "https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/intro_gitlab.JPG" width = "400" align="left"></a>
 [GitLab](http://192.168.58.7:30080)  
-username:  
-password:  
-link: [192.168.58.7:30080](http://192.168.58.7:30080)  
+Username: root  
+Password: <set_your_password>  
+Link: [192.168.58.7:30080](http://192.168.58.7:30080)  
 GitLab is the first single application built from the ground up for all stages of the DevOps lifecycle for Product, Development, QA, Security, and Operations teams to work concurrently on the same project. GitLab enables teams to collaborate and work from a single conversation, instead of managing multiple threads across disparate tools. GitLab provides teams a single data store, one user interface, and one permission model across the DevOps lifecycle allowing teams to collaborate, significantly reducing cycle time and focus exclusively on building great software quickly.  
 [GitLab](https://about.gitlab.com/)  
 
 <a href="http://192.168.58.8:8080"><img src = "https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/intro_concourseci.JPG" width = "400" align="left"></a>
 [Concourse](http://192.168.58.8:8080)  
-username:  
-password:  
+Username: admin  
+Password: Password1!  
 link: [192.168.58.8:8080](http://192.168.58.8:8080)  
 Concourse CI is an open source continuous integration tool written in Go. Concourse limits itself to three core concepts: tasks, resources, and the jobs that compose them. Interesting features like timed triggers and synchronizing usage of external environments are modeled in terms of these.  
 [Concourse CI](https://concourse-ci.org/)  
 
 <a href="http://192.168.58.6:9000"><img src = "https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/intro_minio.JPG" width = "400" align="left"></a>
 [Minio  S3-target](http://192.168.58.6:9000)  
-username:  
-password:  
-link: [192.168.58.6:9000](http://192.168.58.6:9000)  
+Username: admin  
+Password: Password1!  
+Link: [192.168.58.6:9000](http://192.168.58.6:9000)  
 Minio is an object storage server released under Apache License v2.0. It is compatible with Amazon S3 cloud storage service. It is best suited for storing unstructured data such as photos, videos, log files, backups and container / VM images. Size of an object can range from a few KBs to a maximum of 5TB.   Minio server is light enough to be bundled with the application stack, similar to NodeJS, Redis and MySQL.  
 [find more](https://www.minio.io/)  
 
 <a href="192.168.58.5:8080"><img src = "https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/intro_registry.JPG" width = "400" align="left"></a>  
 [Container Registry GUI](192.168.58.5:8080)  
-username:  
-password:  
-link: [192.168.58.5:8080](http://192.168.58.5:8080)  
+Username: <set_your_username>  
+Password: <set_your_password>  
+Link: [192.168.58.5:8080](http://192.168.58.5:8080)  
 A web UI, authentication service and event recorder for a private docker registry v2. Supports the following features:  
 * browsing repositories, tags and images in docker registry v2
 * optional token based authentication provider with role-based permissions
@@ -70,19 +71,22 @@ A web UI, authentication service and event recorder for a private docker registr
 
 <a href="http://192.168.58.3:9000"><img src = "https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/intro_portainer.JPG" width = "400" align="left"></a>
 [Portainer](http://192.168.58.3:9000)  
-username:  
-password:  
-link: [192.168.58.3:9000](http://192.168.58.3:9000)  
+Username: admin  
+Password: <set_your_password>  
+Link: [192.168.58.3:9000](http://192.168.58.3:9000)  
 Portainer is a lightweight management UI which allows you to easily manage your different Docker environments. Portainer is meant to be as simple to deploy as it is to use. It consists of a single container that can run on any Docker engine. Portainer allows you to manage your Docker containers, images, volumes, networks and more ! It is compatible with the standalone Docker engine and with Docker Swarm mode.  
 [find more](https://github.com/portainer/portainer)  
 
 
 ## Getting Started
-check if everything is running using portainer  
+Check if all services have been started successfully, the easiest way is by using Portatiner:  
+<a target="_blank" href="http://192.168.58.3:9000"><img src = "https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/intro_portainer_2.JPG" width = "400" align="left"></a>
+
 use e.g. Putty to connect to vagrant box  
+<a href="#"><img src = "https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/intro_putty.JPG" width = "400" align="left"></a>  
 Hostname: 127.0.0.1  
 Port: 2222  
-User: vagrant  
+Username: vagrant  
 Password: vagrant
 ```bash
 cd /vagrant
