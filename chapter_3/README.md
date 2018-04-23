@@ -3,39 +3,44 @@
 The scope of this chapter is to walk through the following topics:
 * install the fly CLI in order to connect to the Concourse CI target
 * create an integration pipeline with Concourse CI
-* set concourse pipeline
+* set and activate concourse pipeline
 * zero downtime deployment to Cloud Foundry through Concourse CI
 * versioning semver
 * push to S3 target -> minio -> ECS Testdrive
 * slack integration
 
 ### Create GitLab project
-go to [GitLab](http://192.168.58.7:30080)
-set password
-login as 'root' with selected password
-initialize git repo
-
+First go to the [GitLab](http://192.168.58.7:30080) instance in order to create a new project / repository for the current directory. Login as `root` with the password you set earlier.  
+Initialize the git repository using the CLI:
 ```bash
 git remote add origin http://192.168.58.7:30080/root/<my_project_name>.git
 git add .
 git commit -m "Initial commit"
 git push -u origin master
 ```
-### Install the fly cli
-download fly cli, explain fly CLI [Find More](https://concourse-ci.org/fly.html)
+### Install the fly CLI
+The fly CLI is the main tool to interact with Concourse CI, there is no GUI configuration wizard. The first step to get started with Concourse CI is to download the fly CLI. The fly CLI is available through the running Concourse CI instance.  
+Go to the [Concourse CI](http://192.168.58.8:8080) instance and download the Linux binaries.
 ![concourse](https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/co_concourse_1.JPG)
+Copy the downloaded binaries to the current directory and install the fly CLI
 ```bash
 mv fly_linux_amd64 fly
 cp fly /usr/local/bin/fly
 ```
-login to concourse ci
+To communicate with Concourse CI you have to authenticate yourself and specify a target name. Think of the target as a alias for the endpoint such as you don't have to specify the url all the time once the target is set.  
+Login to Concourse CI:
 ```bash
 fly -t <my_target> login -c http://192.168.58.8:8080
 ```
-
+[Find More](https://concourse-ci.org/fly.html)
 
 ### Create concourse pipeline  
 Introduction to conourse, bladi, bladi, bla
+structure, ressource and jobs  
+**ressource:**  
+**ressource_type:**  
+**jobs:**  
+**task:**  
 basically ressources, can act as input and output, some can be both, some can only either be in or output, define one input (GitLab Ressource) and one output (cf target) [Find More](https://concourse-ci.org/resources.html)
 build job, bladi bladi bla, best practise create folder for ci
 [Find More](https://concourse-ci.org/jobs.html)

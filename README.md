@@ -6,7 +6,7 @@
   - [ ] add text
   - [ ] add screenshots
 - [ ] chapter 2
-- [ ] optimize Vagrantfile, plain ubuntu
+- [ ] optimize Vagrantfile, plain ubuntu  
 The aim of this tutorial is to introduce the basic concepts of cloud native application development.  
 Starting by introducing the basic concepts of version control systems like **git**. This tutorial demonstrates the basic interaction with **Cloud Foundry** and shows how to push a small static website to Cloud Foundry. Furthermore the tutorial shows how to build a continuous integration pipeline with **Concourse CI in** order to push application code to Cloud Foundry. Furthermore the integration of S3 targets and slack into integration pipelines are shown. Lastly this tutorial intends to give a short introduction to the use of **Docker** containers.  
 
@@ -26,8 +26,7 @@ vagrant up
 Any text that is shown in brackets (e. g. `<some_text>`) requires an adjustment in the course of this tutorial.
 
 ## Tutorial environment
-**wip**  
-describe environment
+On `vagrant up` a virtual machine is started using VirtualBox. The virtual machine launches several services that are going to be covered in the course of this tutorial. The services are started as Docker containers and can be reached at the following ip addresses:
 
 
 | Component     | IP           | Port  |
@@ -39,6 +38,9 @@ describe environment
 | Minio S3-target  | [192.168.58.6](http://192.168.58.6:9000) | 9000  |
 | GitLab        | [192.168.58.7](http://192.168.58.7:30080) | 30080 |
 | Concourse | [192.168.58.8](http://192.168.58.8:8080) | 8080  |
+
+This environment is for demo purposes only, under no circumstances should this environment be used productively.  
+  
 
 <a href="http://192.168.58.7:30080"><img src = "https://github.com/smichard/CNA_tutorial/blob/master/tutorial_assets/intro_gitlab.JPG" width = "400" align="left"></a>
 [GitLab](http://192.168.58.7:30080)  
